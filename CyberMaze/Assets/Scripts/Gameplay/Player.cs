@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     public Animator animator;
     public bool isGround = true;
     private bool isFacingRight = true;
+    public  Text gemText;
+    public int currentGem = 0; 
 
 
 
@@ -103,6 +106,7 @@ void OnCollisionEnter2D(Collision2D other)
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        
+        currentGem ++;
+        Destroy(this.gameObject);
     }
 }
