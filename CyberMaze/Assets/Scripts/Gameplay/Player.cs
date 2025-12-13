@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     public Animator animator;
     public bool isGround = true;
     private bool isFacingRight = true;
-    public  Text gemText;
-    public int currentGem = 0; 
+    public Text gemText;
+    public int currentGem = 0;
 
 
 
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         jumpsRemaining = maxJumps;
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -34,67 +34,72 @@ public class Player : MonoBehaviour
         Jump();
         animator.SetBool("Jump", false);
     }
-    
+
     void Run()
     {
         //horizontal movement
-        float movement = 0f;
-        if (Keyboard.current.leftArrowKey.isPressed) movement = -1f;
-        if (Keyboard.current.rightArrowKey.isPressed) movement = 1f;
+        float movement_x = 0f;
+        float movement_y = 0f;
+        if (Keyboard.current.leftArrowKey.isPressed) movement_x = -1f;
+        if (Keyboard.current.rightArrowKey.isPressed) movement_x = 1f;
+        if (Keyboard.current.downArrowKey.isPressed) movement_y = -1f;
 
-        transform.position += new Vector3(movement * speed * Time.deltaTime, 0f, 0f);  
+        float x_value = movement_x * speed * Time.deltaTime;
+        float y_value = movement_y * speed * Time.deltaTime;
+        float z_value = 0f;
+        transform.position += new Vector3(x_value, y_value, z_value);
 
         // Flip check
-        if (movement > 0 && !isFacingRight)
+        if (movement_x > 0 && !isFacingRight)
             Flip();
-        else if (movement < 0 && isFacingRight)
+        else if (movement_x < 0 && isFacingRight)
             Flip();
 
         // Run animation only if on ground
-if (isGround)
-{
-    if (Mathf.Abs(movement) > 0.1f)
-        animator.SetFloat("Run", 1f);
-    else
-        animator.SetFloat("Run", 0f);
-}
-else
-{
-    animator.SetFloat("Run", 0f); // in air, no running animation
-}
-    
+        if (isGround)
+        {
+            if (Mathf.Abs(movement_x) > 0.1f)
+                animator.SetFloat("Run", 1f);
+            else
+                animator.SetFloat("Run", 0f);
+        }
+        else
+        {
+            animator.SetFloat("Run", 0f); // in air, no running animation
+        }
+
     }
     void Jump()
     {
         {
-        // Reset jumps if player is on the ground
-        if (Mathf.Abs(rb.linearVelocity.y) < 0.01f)
-        {
-            isGround = true;
-            jumpsRemaining = maxJumps;
+            // Reset jumps if player is on the ground
+            if (Mathf.Abs(rb.linearVelocity.y) < 0.01f)
+            {
+                isGround = true;
+                jumpsRemaining = maxJumps;
+            }
+            //Jump input
+            if (Keyboard.current.spaceKey.wasPressedThisFrame && jumpsRemaining > 0)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+
+                isGround = false;
+                animator.SetTrigger("Jump");
+
+                jumpsRemaining--;
+            }
+
         }
-        //Jump input
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && jumpsRemaining > 0)
-    {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-        rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-
-        isGround = false;
-        animator.SetTrigger("Jump");
-
-        jumpsRemaining--;
     }
-
-    }
-}
-void Flip()
+    void Flip()
     {
         isFacingRight = !isFacingRight;
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
     }
-void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.tag == "Ground")
         {
@@ -106,7 +111,7 @@ void OnCollisionEnter2D(Collision2D other)
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        currentGem ++;
+        currentGem++;
         Destroy(other.gameObject);
         gemText.text = currentGem.ToString();
     }
