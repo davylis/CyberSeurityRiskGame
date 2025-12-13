@@ -8,6 +8,6 @@ public class PressButton : MonoBehaviour
     public void pressed()
     {
         Debug.Log("Button pressed");
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MazeGame");
     }
 }
