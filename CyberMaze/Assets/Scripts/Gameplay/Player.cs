@@ -41,7 +41,6 @@ public class Player : MonoBehaviour
         float movement = 0f;
         if (Keyboard.current.leftArrowKey.isPressed) movement = -1f;
         if (Keyboard.current.rightArrowKey.isPressed) movement = 1f;
-        if (Keyboard.current.leftShiftKey.isPressed) movement *= 2;
 
         transform.position += new Vector3(movement * speed * Time.deltaTime, 0f, 0f);  
 
