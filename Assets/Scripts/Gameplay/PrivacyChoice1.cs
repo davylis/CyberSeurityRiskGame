@@ -11,13 +11,13 @@ public class PrivacyChoice : MonoBehaviour
     {
         privacyPanel.SetActive(false);
         phonePanel.SetActive(false);
-        goodPanel.SetActive(true);
+        badPanel.SetActive(true);
     }
 
     public void Disagree()
     {
         privacyPanel.SetActive(false);
         phonePanel.SetActive(false);
-        badPanel.SetActive(true);
+        goodPanel.SetActive(true);
     }
 }
