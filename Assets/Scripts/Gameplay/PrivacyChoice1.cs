@@ -9,6 +9,8 @@ public class PrivacyChoice : MonoBehaviour
 
     public void Agree()
     {
+        GameManager.Instance.AddPoints(0);
+        Debug.Log("Current Score: " + GameManager.Instance.score);
         privacyPanel.SetActive(false);
         phonePanel.SetActive(false);
         badPanel.SetActive(true);
@@ -16,6 +18,8 @@ public class PrivacyChoice : MonoBehaviour
 
     public void Disagree()
     {
+        GameManager.Instance.AddPoints(1);
+        Debug.Log("Current Score: " + GameManager.Instance.score);
         privacyPanel.SetActive(false);
         phonePanel.SetActive(false);
         goodPanel.SetActive(true);
