@@ -6,6 +6,8 @@ public class PrivacyChoice : MonoBehaviour
     public GameObject phonePanel;
     public GameObject goodPanel;
     public GameObject badPanel;
+    public GameObject confirmPopup;
+    private bool pendingAgree;
 
     public void Agree()
     {
@@ -18,7 +20,7 @@ public class PrivacyChoice : MonoBehaviour
 
     public void Disagree()
     {
-        GameManager.Instance.AddPoints(1);
+        GameManager.Instance.AddPoints(10);
         Debug.Log("Current Score: " + GameManager.Instance.score);
         privacyPanel.SetActive(false);
         phonePanel.SetActive(false);

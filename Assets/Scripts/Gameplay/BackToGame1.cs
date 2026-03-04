@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class BackToGame1 : MonoBehaviour
 {
-    public string taskScene = "Case1Privacy";
+    public string taskScene;
     public int pointsToAdd = 0;
 
     public void ReturnToGame()

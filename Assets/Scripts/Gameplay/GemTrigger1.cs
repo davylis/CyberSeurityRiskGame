@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GemTrigger : MonoBehaviour
+public class GemTrigger1 : MonoBehaviour
 {
     public string taskScene = "Case1Privacy";
 

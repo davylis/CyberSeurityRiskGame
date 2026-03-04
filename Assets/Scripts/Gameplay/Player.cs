@@ -36,44 +36,39 @@ public class Player : MonoBehaviour
     }
 
     void Run()
+{
+    float movement_x = 0f;
+
+    if (Keyboard.current.leftArrowKey.isPressed) movement_x = -1f;
+    if (Keyboard.current.rightArrowKey.isPressed) movement_x = 1f;
+
+    // Set horizontal velocity
+    rb.velocity = new Vector2(movement_x * speed, rb.velocity.y);
+
+    // Flip check
+    if (movement_x > 0 && !isFacingRight)
+        Flip();
+    else if (movement_x < 0 && isFacingRight)
+        Flip();
+
+    // Run animation only if on ground
+    if (isGround)
     {
-        //horizontal movement
-        float movement_x = 0f;
-        float movement_y = 0f;
-        if (Keyboard.current.leftArrowKey.isPressed) movement_x = -1f;
-        if (Keyboard.current.rightArrowKey.isPressed) movement_x = 1f;
-        if (Keyboard.current.downArrowKey.isPressed) movement_y = -1f;
-
-        float x_value = movement_x * speed * Time.deltaTime;
-        float y_value = movement_y * speed * Time.deltaTime;
-        float z_value = 0f;
-        transform.position += new Vector3(x_value, y_value, z_value);
-
-        // Flip check
-        if (movement_x > 0 && !isFacingRight)
-            Flip();
-        else if (movement_x < 0 && isFacingRight)
-            Flip();
-
-        // Run animation only if on ground
-        if (isGround)
-        {
-            if (Mathf.Abs(movement_x) > 0.1f)
-                animator.SetFloat("Run", 1f);
-            else
-                animator.SetFloat("Run", 0f);
-        }
+        if (Mathf.Abs(movement_x) > 0.1f)
+            animator.SetFloat("Run", 1f);
         else
-        {
-            animator.SetFloat("Run", 0f); // in air, no running animation
-        }
-
+            animator.SetFloat("Run", 0f);
     }
+    else
+    {
+        animator.SetFloat("Run", 0f);
+    }
+}
     void Jump()
     {
         {
             // Reset jumps if player is on the ground
-            if (Mathf.Abs(rb.linearVelocity.y) < 0.01f)
+            if (Mathf.Abs(rb.velocity.y) < 0.01f)
             {
                 isGround = true;
                 jumpsRemaining = maxJumps;
@@ -81,7 +76,7 @@ public class Player : MonoBehaviour
             //Jump input
             if (Keyboard.current.spaceKey.wasPressedThisFrame && jumpsRemaining > 0)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+                rb.velocity = new Vector2(rb.velocity.x, 0f);
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
 
                 isGround = false;
