@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GemTrigger1 : MonoBehaviour
 {
-    public string taskScene = "Case1Privacy";
+    public string taskScene = "";
 
     private void OnTriggerEnter2D(Collider2D other)
     {

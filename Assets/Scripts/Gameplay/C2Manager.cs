@@ -9,7 +9,7 @@ public class C2Manager : MonoBehaviour
     public GameObject daybookPanel;
     public GameObject capturegramPanel;
     public GameObject findPanel;
-
+    public GameObject taskDescription;  
     private GameObject currentPanel;
 
     void Start()
@@ -25,8 +25,6 @@ public class C2Manager : MonoBehaviour
         currentPanel = panel;
         currentPanel.SetActive(true);
     }
-
-    // ---- SEARCH FLOW ----
     public void ShowResults()
     {
         OpenPanel(resultsPanel);
@@ -36,8 +34,6 @@ public class C2Manager : MonoBehaviour
     {
         OpenPanel(searchPanel);
     }
-
-    // ---- OPEN PAGES FROM RESULTS ----
     public void OpenJobkedin()
     {
         OpenPanel(jobkedinPanel);
@@ -57,10 +53,13 @@ public class C2Manager : MonoBehaviour
     {
         OpenPanel(findPanel);
     }
-
-    // ---- BACK FROM PAGES ----
     public void BackToResults()
     {
         OpenPanel(resultsPanel);
+    }
+    public void SwitchScreen()
+    {
+        if (taskDescription != null)
+            taskDescription.SetActive(false);  
     }
 }

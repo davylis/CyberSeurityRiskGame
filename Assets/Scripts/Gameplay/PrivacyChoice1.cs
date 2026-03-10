@@ -8,6 +8,8 @@ public class PrivacyChoice : MonoBehaviour
     public GameObject badPanel;
     public GameObject confirmPopup;
     private bool pendingAgree;
+    public GameObject taskDescription;  
+    public GameObject playScreen;
 
     public void Agree()
     {
@@ -25,5 +27,10 @@ public class PrivacyChoice : MonoBehaviour
         privacyPanel.SetActive(false);
         phonePanel.SetActive(false);
         goodPanel.SetActive(true);
+    }
+    public void SwitchScreen()
+    {
+        if (taskDescription != null)
+            taskDescription.SetActive(false);  
     }
 }

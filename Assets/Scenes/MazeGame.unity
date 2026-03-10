@@ -153396,7 +153396,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206631548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27196a982a2fb4907bb260a6a56cf87f, type: 3}
+  m_Script: {fileID: 11500000, guid: 551553f06a37e4b42a1c6f1931c39edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   taskScene: Case2footprint
@@ -153677,6 +153677,7 @@ GameObject:
   - component: {fileID: 1455589346}
   - component: {fileID: 1455589345}
   - component: {fileID: 1455589344}
+  - component: {fileID: 1455589348}
   m_Layer: 0
   m_Name: gem3
   m_TagString: Gem
@@ -153807,6 +153808,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1455589348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455589343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551553f06a37e4b42a1c6f1931c39edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskScene: Case3Password
 --- !u!1 &1492646621
 GameObject:
   m_ObjectHideFlags: 0
@@ -154788,6 +154802,7 @@ GameObject:
   - component: {fileID: 2099052562}
   - component: {fileID: 2099052561}
   - component: {fileID: 2099052560}
+  - component: {fileID: 2099052564}
   m_Layer: 0
   m_Name: gem4
   m_TagString: Gem
@@ -154918,6 +154933,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2099052564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099052559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551553f06a37e4b42a1c6f1931c39edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskScene: Case4OfDefender
 --- !u!1 &2139614484
 GameObject:
   m_ObjectHideFlags: 0

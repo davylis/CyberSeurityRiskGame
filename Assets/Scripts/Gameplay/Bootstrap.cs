@@ -10,6 +10,6 @@ public class Bootstrap : MonoBehaviour
     void Start()
     {
         Debug.Log("BOOTSTRAP STARTED");
-        SceneManager.LoadScene("FormInfo"); // tai MainMenu
+        SceneManager.LoadScene("StartGame"); 
     }
 }
