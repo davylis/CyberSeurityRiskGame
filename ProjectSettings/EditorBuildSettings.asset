@@ -48,13 +48,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Case8GDRP.unity
     guid: f1a72a9dd77684b5db1a44fe593062f5
   - enabled: 1
-    path: Assets/Scenes/Case9Hack.unity
+    path: Assets/Scenes/Case9Firewall.unity
     guid: 6d9fd16cd4bbf478981116eff9614610
   - enabled: 1
-    path: Assets/Scenes/Case10Firewall.unity
+    path: Assets/Scenes/Case10ServerScaling.unity
     guid: 92adf4e22c3854be9b56a938a9537b70
   - enabled: 1
-    path: Assets/Scenes/Case11Incident.unity
+    path: Assets/Scenes/Case11DataLeak.unity
     guid: e5520f112fde045849b2bd5a80724688
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 5e716bb9195b9eb49a2ccb4c51691dc6,
