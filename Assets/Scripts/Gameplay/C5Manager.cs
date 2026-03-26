@@ -18,4 +18,11 @@ public class C5Manager : MonoBehaviour
 
         Debug.Log("Correct answers: " + correct + " / " + emailToggles.Length);
     }
+
+    public GameObject taskDescription;
+    public void SwitchScreen()
+    {
+        if (taskDescription != null)
+            taskDescription.SetActive(false);  
+    }
 }

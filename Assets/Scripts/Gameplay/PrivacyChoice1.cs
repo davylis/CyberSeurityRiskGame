@@ -2,35 +2,56 @@ using UnityEngine;
 
 public class PrivacyChoice : MonoBehaviour
 {
-    public GameObject privacyPanel;
+    public GameObject taskDescription;
     public GameObject phonePanel;
+    public GameObject privacyPanel;
     public GameObject goodPanel;
     public GameObject badPanel;
-    public GameObject confirmPopup;
-    private bool pendingAgree;
-    public GameObject taskDescription;  
-    public GameObject playScreen;
+
+    private void Start()
+    {
+        if (GameManager.Instance != null)
+        {
+            Debug.Log( GameManager.Instance.playerName + GameManager.Instance.playerDegree + GameManager.Instance.age);
+            Debug.Log("PrivacyChoice Start: GameManager found. Current score = " + GameManager.Instance.score);
+        }
+    }
+    public void SwitchScreen()
+    {
+        if (taskDescription != null)
+            taskDescription.SetActive(false);
+
+        if (phonePanel != null)
+            phonePanel.SetActive(true);
+    }
 
     public void Agree()
     {
         GameManager.Instance.AddPoints(0);
         Debug.Log("Current Score: " + GameManager.Instance.score);
-        privacyPanel.SetActive(false);
-        phonePanel.SetActive(false);
-        badPanel.SetActive(true);
+
+        if (privacyPanel != null)
+            privacyPanel.SetActive(false);
+
+        if (phonePanel != null)
+            phonePanel.SetActive(false);
+
+        if (badPanel != null)
+            badPanel.SetActive(true);
     }
 
     public void Disagree()
     {
-        GameManager.Instance.AddPoints(10);
+        GameManager.Instance.AddPoints(5);
         Debug.Log("Current Score: " + GameManager.Instance.score);
-        privacyPanel.SetActive(false);
-        phonePanel.SetActive(false);
-        goodPanel.SetActive(true);
-    }
-    public void SwitchScreen()
-    {
-        if (taskDescription != null)
-            taskDescription.SetActive(false);  
+
+        if (privacyPanel != null)
+            privacyPanel.SetActive(false);
+
+        if (phonePanel != null)
+            phonePanel.SetActive(false);
+
+        if (goodPanel != null)
+            goodPanel.SetActive(true);
     }
 }

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public string playerDegree;
     public string age;
     public int score;
+    public bool agreedToResearch = false;
 
     void Awake()
     {
