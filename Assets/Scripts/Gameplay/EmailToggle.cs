@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EmailToggle : MonoBehaviour
 {
     public Toggle toggle;
-    public bool isSuspicious; //true if this email is phishing
+    public bool isSuspicious;
 
     public bool IsCorrect()
     {

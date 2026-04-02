@@ -7,6 +7,7 @@ public class ReportUI4 : MonoBehaviour
 {
     public TextMeshProUGUI reportText;
      public GameObject GameRaport;
+     private bool scoreSaved = false;
 
     public void ShowReport()
     {
@@ -16,17 +17,33 @@ public class ReportUI4 : MonoBehaviour
         string message = "";
 
         if (items == 5)
-            message = "Excellent work!";
+            message = "Strong Security Awareness";
         else if (items >= 3)
-            message = "Good job!";
+            message = "Partial Security Awareness";
         else
-            message = "Workspace needs more cleaning.";
+            message = "Low Security Awareness";
 
         reportText.text =
-            "Items cleaned: " + items + "/5\n\n" +
-            "Points earned: " + points + "\n\n" +
-            message;
+            message +
+            "\n\n\n\nItems cleaned : " + items + " / 5\n\n";
 
+        if (!scoreSaved)
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.AddCase4Points(points);
+
+                Debug.Log("Case 4 points added: " + points);
+                Debug.Log("Case 4 total: " + GameManager.Instance.case4Score);
+                Debug.Log("Game total score: " + GameManager.Instance.score);
+
+                scoreSaved = true;
+            }
+            else
+            {
+                Debug.LogError("GameManager is NULL!");
+            }
+        }
             GameRaport.SetActive(true);
     }
 }

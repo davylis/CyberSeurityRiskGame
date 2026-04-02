@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class C2Manager : MonoBehaviour
 {
@@ -91,7 +92,10 @@ public class C2Manager : MonoBehaviour
     }
     public void SwitchScreen()
     {
+        Debug.Log("SwitchScreen clicked");
+
         if (taskDescription != null)
             taskDescription.SetActive(false);  
     }
+    
 }

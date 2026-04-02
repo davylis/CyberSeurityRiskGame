@@ -18,7 +18,7 @@ public class ComputerScreen : MonoBehaviour
     {
         goodbyeImage.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSecondsRealtime(delay);
 
         blackImage.gameObject.SetActive(true);
         goodbyeImage.gameObject.SetActive(false);

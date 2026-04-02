@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Text.RegularExpressions;
 using Zxcvbn;
 
 public class PasswordStrenghtCalculator : MonoBehaviour
@@ -30,30 +31,32 @@ public void EvaluatePassword()
         Debug.Log("Estimated Crack Time: " + result.CrackTimeDisplay);
 
         // Map Zxcvbn score (0–4) to 0–6 scale for your 6 panels
-        int score = MapZxcvbnScoreToSix(result.Score);
+        int score = result.Score;
 
-        string strength = MapScoreToStrength(score);
+        string strength = MapScoreToStrength(score, password);
         reportManager.ShowReport(strength);
     }
-
-    private int MapZxcvbnScoreToSix(int zxcvbnScore)
+        private string MapScoreToStrength(int score, string password)
     {
-        // Linear mapping from 0–4 → 0–6
-        return Mathf.RoundToInt((zxcvbnScore / 4f) * 6f);
+        if (score <= 1)
+            return "weak";
+
+        if (score == 2)
+            return "medium";
+
+        if (score == 3)
+            return "strong";
+
+        if (!LooksReadable(password) && password.Length > 13)
+            return "superstrong";
+
+        return "verystrong";
     }
-
-    private string MapScoreToStrength(int score)
+    bool LooksReadable(string password)
     {
-        switch (score)
-        {
-            case 0: return "weak";
-            case 1: return "weak";
-            case 2: return "medium";
-            case 3: return "strong";
-            case 4: return "verystrong";
-            case 5: return "veryverystrong";
-            case 6: return "superstrong";
-            default: return "weak";
-        }
+        return System.Text.RegularExpressions.Regex.IsMatch(
+        password,
+        @"^([A-Z]?[a-z]+([-_ ][A-Z]?[a-z]+)+\d{1,4}[!@#$%^&*]?)$|^([A-Z]?[a-z]+(?:[A-Z][a-z]+)+\d{1,4}[!@#$%^&*]?)$"
+        );
     }
 }

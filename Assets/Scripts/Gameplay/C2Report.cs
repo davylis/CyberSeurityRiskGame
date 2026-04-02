@@ -4,13 +4,31 @@ using UnityEngine;
 public class C2Report : MonoBehaviour
 {
     public TMP_Text scoreText;
+    public TMP_Text reportText;
 
-    void OnEnable()
+    private void OnEnable()
     {
-        if (GameManager.Instance != null)
+        if (GameManager.Instance == null)
         {
-            scoreText.text = "Case 2 Score: " + GameManager.Instance.score + " / 7";
-            Debug.Log("Report opened. Case 2 score: " + GameManager.Instance.score);
+            Debug.LogWarning("GameManager.Instance is NULL! Using test values.");
+            reportText.text = "Test mode: no GameManager found.";
+            scoreText.text = "Case 2 Score: 0 / 7";
+            return;
         }
+        
+        int score = GameManager.Instance.case2Score;
+
+        Debug.Log("Report reading score: " + score);
+
+        if (score > 3)
+        {
+            reportText.text = "You understood that even public information can reveal private details when combined.";
+        }
+        else
+        {
+            reportText.text = "You identified very little of the available information.";
+        }
+
+        scoreText.text = "Score: " + score + " / 7";
     }
 }
