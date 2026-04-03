@@ -31,7 +31,7 @@ public class C5Manager : MonoBehaviour
             }
         }
 
-        int points = suspiciousFound * 2;
+        int points = suspiciousFound;
 
         Debug.Log("Suspicious found: " + suspiciousFound + " / 5");
         Debug.Log("Points to save: " + points);
@@ -55,14 +55,14 @@ public class C5Manager : MonoBehaviour
             if (suspiciousFound == 5)
                 reportText.text = "You identified all phishing emails correctly.";
             else if (suspiciousFound >= 3)
-                reportText.text = "You identified some phishing emails, but missed a few.";
+                reportText.text = "You identified some phishing emails, but missed a \n\nfew.";
             else
-                reportText.text = "You missed many phishing emails. Be more careful with suspicious messages.";
+                reportText.text = "You missed many phishing emails. Be more careful \n\nwith suspicious messages.";
         }
 
         if (scoreText != null)
         {
-            scoreText.text = suspiciousFound + " / 5 found";
+            scoreText.text = "Score : " + suspiciousFound + " / 5";
         }
 
         if (gameReport != null)

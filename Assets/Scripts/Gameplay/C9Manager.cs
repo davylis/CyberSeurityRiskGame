@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class C9Manager : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class C9Manager : MonoBehaviour
         public int totalScore = 0;
         private bool answered = false;
         private bool logsReviewed = false;
+        private bool resultsSaved = false;
+        private List<int> selectedAnswers = new List<int>();
+
+        public TMP_Text reportText;
+        public TMP_Text scoreText;
 
 
     private void ShowReviewedSummary()
@@ -63,10 +69,14 @@ public class C9Manager : MonoBehaviour
 
         answered = true;
 
+        selectedAnswers.Add(selectedIndex);
+
         bool isCorrect = selectedIndex == correctAnswerIndex;
 
         if (isCorrect)
             totalScore += 5;
+        else
+            totalScore = 0;
 
         Debug.Log("Selected: " + selectedIndex);
         Debug.Log("Correct: " + correctAnswerIndex);
@@ -78,15 +88,51 @@ public class C9Manager : MonoBehaviour
         }
     private void FinishQuiz()
     {
-        if (summaryScreen != null) summaryScreen.SetActive(false);
-        if (logsScreen != null) logsScreen.SetActive(false);
-        if (choiceScreen != null) choiceScreen.SetActive(false);
+        if (!resultsSaved)
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SaveCase9Choices(selectedAnswers);
+                GameManager.Instance.AddCase9Points(totalScore);
 
+                Debug.Log("Saved Case 9 points: " + totalScore);
+                Debug.Log("Case 9 total: " + GameManager.Instance.case9Score);
+                Debug.Log("Game total score: " + GameManager.Instance.score);
+            }
+            else
+            {
+                Debug.LogError("GameManager.Instance is NULL!");
+            }
+
+            resultsSaved = true;
+        }
+        UpdateReportUI();
         if (reportScreen != null)
             reportScreen.SetActive(true);
 
-        PlayerPrefs.SetInt("C9Score", totalScore);
+        
     }
+    private void UpdateReportUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score : " + totalScore + " / 5";
+        }
+
+        if (reportText != null)
+        {
+            if (totalScore == 5)
+            {
+                reportText.text = "You correctly identified the attack!";
+            }
+            else
+            {
+                reportText.text = "You selected the wrong attack type.";
+            }
+        }
+    }
+
+
     public void SwitchScreen()
     {
         if (taskDescription != null)

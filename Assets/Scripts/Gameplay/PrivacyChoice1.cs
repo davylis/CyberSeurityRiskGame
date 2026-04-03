@@ -42,7 +42,7 @@ public class PrivacyChoice : MonoBehaviour
 
     public void Disagree()
     {
-        GameManager.Instance.AddPoints(5);
+        GameManager.Instance.AddPoints(2);
         Debug.Log("Current Score: " + GameManager.Instance.score);
 
         if (privacyPanel != null)

@@ -55,9 +55,15 @@ public class Player : MonoBehaviour
     if (isGround)
     {
         if (Mathf.Abs(movement_x) > 0.1f)
+        {
             animator.SetFloat("Run", 1f);
+            AudioManager.Instance?.StartWalking();
+        }
         else
+        {
             animator.SetFloat("Run", 0f);
+            AudioManager.Instance?.StopWalking();
+        }
     }
     else
     {
@@ -81,6 +87,9 @@ public class Player : MonoBehaviour
 
                 isGround = false;
                 animator.SetTrigger("Jump");
+
+                AudioManager.Instance?.PlayJump();
+                AudioManager.Instance?.StopWalking();
 
                 jumpsRemaining--;
             }
@@ -107,6 +116,8 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         currentGem++;
+        AudioManager.Instance?.PlayCollectible();
+
         Destroy(other.gameObject);
         gemText.text = currentGem.ToString();
     }

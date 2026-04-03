@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class C8Manager : MonoBehaviour
 {
@@ -9,9 +10,13 @@ public class C8Manager : MonoBehaviour
         public GameObject taskDescription;
         public GameObject reportScreen;
         public int totalScore = 0;
-        public List<bool> gdprAnswers = new List<bool>();
+         public TMP_Text reportText;
+        public TMP_Text scoreText;
+        public GameObject gameReport;
+        private List<int> selectedAnswers = new List<int>();
         private int currentQuestionIndex = 0;
         private bool answered = false;
+        private bool resultsSaved = false;
 
     public void SelectAnswer(int selectedIndex)
     {
@@ -19,23 +24,26 @@ public class C8Manager : MonoBehaviour
 
         answered = true;
 
+        selectedAnswers.Add(selectedIndex);
+
         bool isCorrect = selectedIndex == correctAnswers[currentQuestionIndex];
-        gdprAnswers.Add(isCorrect);
 
         if (isCorrect)
             totalScore++;
 
-        Debug.Log("Question " + currentQuestionIndex + ": " + (isCorrect ? "Correct" : "Wrong"));
+        Debug.Log("Q" + currentQuestionIndex +
+                  " | Selected: " + selectedIndex +
+                  " | Correct: " + correctAnswers[currentQuestionIndex]);
 
         currentQuestionIndex++;
         answered = false;
 
-    if (currentQuestionIndex >= choiceScreens.Length)
+        if (currentQuestionIndex >= choiceScreens.Length)
         {
             HideAllScreens();
 
-            Debug.Log("Finished! Correct answers: " + CountCorrectAnswers() + " / " + gdprAnswers.Count);
-            Debug.Log("Total score: " + totalScore);
+            SaveToGameManager();
+            UpdateReportUI();
 
             if (reportScreen != null)
                 reportScreen.SetActive(true);
@@ -60,17 +68,47 @@ public class C8Manager : MonoBehaviour
             choiceScreens[i].SetActive(false);
         }
     }
-
-    private int CountCorrectAnswers()
+    private void SaveToGameManager()
     {
-        int count = 0;
+        if (resultsSaved) return;
 
-        foreach (bool answer in gdprAnswers)
+        if (GameManager.Instance != null)
         {
-            if (answer) count++;
+            GameManager.Instance.SaveCase8Choices(selectedAnswers);
+            GameManager.Instance.AddCase8Points(totalScore);
+
+            Debug.Log("Saved Case 8 score: " + totalScore);
+            Debug.Log("Total score: " + GameManager.Instance.score);
+
+            resultsSaved = true;
+        }
+        else
+        {
+            Debug.LogError("GameManager is NULL!");
+        }
+    }
+    private void UpdateReportUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = totalScore + " / " + choiceScreens.Length + " correct";
         }
 
-        return count;
+        if (reportText != null)
+        {
+            if (totalScore == choiceScreens.Length)
+            {
+                reportText.text = "You made responsible decisions and followed GDPR \n\nprinciples correctly.";
+            }
+            else if (totalScore >= choiceScreens.Length / 2)
+            {
+                reportText.text = "You understood some GDPR rules, but missed a few \n\nimportant points.";
+            }
+            else
+            {
+                reportText.text = "You made several incorrect decisions. Be more \n\ncareful when handling personal data.";
+            }
+        }
     }
     public void SwitchScreen()
     {

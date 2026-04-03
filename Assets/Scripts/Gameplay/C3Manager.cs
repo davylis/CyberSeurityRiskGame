@@ -29,19 +29,19 @@ public class C3Manager : MonoBehaviour
                 break;
             case "medium":
                 mediumReport.SetActive(true);
-                points = 2;
+                points = 1;
                 break;
             case "strong":
                 strongReport.SetActive(true);
-                points = 4;
+                points = 2;
                 break;
             case "verystrong":
                 veryStrongReport.SetActive(true);
-                points = 6;
+                points = 3;
                 break;
             case "superstrong":
                 superStrongReport.SetActive(true);
-                points = 8;
+                points = 4;
                 break;
             default:
                 Debug.LogWarning("Unknown password strength: " + strength);

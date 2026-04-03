@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66645568}
   - component: {fileID: 66645567}
+  - component: {fileID: 66645569}
   m_Layer: 0
   m_Name: Bootstrapper
   m_TagString: Untagged
@@ -166,6 +167,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &66645569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66645566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2cc523492ef4ee6b89b2d4774b3ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: fc5421963efb34653a4ab513d86b3f37, type: 2}
+  menuMusic: {fileID: 8300000, guid: b474512599bf54b07a9f487b04680882, type: 3}
+  gameMusic: {fileID: 8300000, guid: a7f2d0d61cde9435487dbfca52481fc9, type: 3}
+  walkClip: {fileID: 8300000, guid: 3318e557ea5714340abb5376ce7fb8c6, type: 3}
+  jumpClip: {fileID: 8300000, guid: 3a73ff69aa411428eb43d3a2099be9bd, type: 3}
+  collectibleClip: {fileID: 8300000, guid: bf527d825758e5b4ca7b69f5a02d9a56, type: 3}
+  music: {fileID: 0}
 --- !u!1 &1535468605
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +311,25 @@ MonoBehaviour:
   playerDegree: 
   age: 
   score: 0
+  agreedToResearch: 0
+  case1Score: 0
+  case2Score: 0
+  case3Score: 0
+  case4Score: 0
+  case5Score: 0
+  case6Score: 0
+  case7Score: 0
+  case8Score: 0
+  case9Score: 0
+  case10Score: 0
+  case11Score: 0
+  case5Choices: 
+  case6Choices: 
+  case7Choices: 
+  case8Choices: 
+  case9Choices: 
+  case10Choices: 
+  case11Choices: 
 --- !u!4 &1858984336
 Transform:
   m_ObjectHideFlags: 0

@@ -22,6 +22,6 @@ public class C4GManager : MonoBehaviour
 
     public int CalculatePoints()
     {
-        return collectedItems * 2;
+        return collectedItems;
     }
 }

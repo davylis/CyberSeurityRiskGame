@@ -12,7 +12,7 @@ public class ReportUI4 : MonoBehaviour
     public void ShowReport()
     {
         int items = C4GManager.Instance.collectedItems;
-        int points = items * 2;
+        int points = items;
 
         string message = "";
 
