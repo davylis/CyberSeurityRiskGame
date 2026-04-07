@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
     else
     {
         animator.SetFloat("Run", 0f);
+        AudioManager.Instance?.StopWalking();
     }
 }
     void Jump()

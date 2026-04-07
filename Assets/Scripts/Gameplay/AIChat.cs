@@ -89,7 +89,7 @@ public class AIChat : MonoBehaviour
             }
             else if (score >= prompts.Length / 2)
             {
-                reportText.text = "You identified some unsafe prompts, but missed a few.";
+                reportText.text = "You identified some unsafe prompts, but missed \n\na few.";
             }
             else
             {

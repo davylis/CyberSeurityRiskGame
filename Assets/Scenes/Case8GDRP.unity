@@ -657,10 +657,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-    1. A user requests deletion of all their data.
-
-    However, your
-    company must retain some financial records for 6 years due to law.'
+    1. A user requests deletion of all their personal data. However,
+    the organization is legally required to retain certain records for several years
+    (backups or financial records).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -771,7 +770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.76, y: 18.1}
+  m_AnchoredPosition: {x: 62, y: -9}
   m_SizeDelta: {x: 700, y: 42.4287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &212242466
@@ -794,7 +793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: aaa
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88003508be39e449cb51c48494e680cf, type: 2}
   m_sharedMaterial: {fileID: 21699584260080902, guid: 88003508be39e449cb51c48494e680cf,
@@ -1366,7 +1365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.8782, y: 109.3825}
+  m_AnchoredPosition: {x: 15.8782, y: 76.999985}
   m_SizeDelta: {x: 2317.1975, y: 1055.2336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &474209334
@@ -2363,7 +2362,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-    3. Old inactive users (5+ years). Marketing wants to reuse data.'
+    3. There is old inactive users. Marketing wants to reuse their data.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2591,7 +2590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &770877891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4265,7 +4264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.8782, y: 109.3825}
+  m_AnchoredPosition: {x: 15.8782, y: 76.999985}
   m_SizeDelta: {x: 2317.1975, y: 1055.2336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1369137618
@@ -4420,7 +4419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.8782, y: 109.3825}
+  m_AnchoredPosition: {x: 15.8782, y: 76.999985}
   m_SizeDelta: {x: 2317.1975, y: 1055.2336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423084937
@@ -5231,9 +5230,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 561200966}
-        m_TargetAssemblyTypeName: ReadyTaskPopup, Assembly-CSharp
-        m_MethodName: YesRaport
+      - m_Target: {fileID: 561200965}
+        m_TargetAssemblyTypeName: C8Manager, Assembly-CSharp
+        m_MethodName: CheckAnswers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5582,7 +5581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.76, y: -61.4}
+  m_AnchoredPosition: {x: 62, y: -94}
   m_SizeDelta: {x: 614.8867, y: 84.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1669283372
@@ -5987,7 +5986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000037751, y: -106}
+  m_AnchoredPosition: {x: 12, y: -129}
   m_SizeDelta: {x: 143.2568, y: 23.9116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772818313
@@ -6118,7 +6117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 49.3529, y: 72.321}
+  m_AnchoredPosition: {x: 62, y: 58.107}
   m_SizeDelta: {x: 600.0698, y: 59.786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799122163
@@ -6141,7 +6140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: aaa
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88003508be39e449cb51c48494e680cf, type: 2}
   m_sharedMaterial: {fileID: 21699584260080902, guid: 88003508be39e449cb51c48494e680cf,

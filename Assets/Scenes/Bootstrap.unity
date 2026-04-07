@@ -182,10 +182,58 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: fc5421963efb34653a4ab513d86b3f37, type: 2}
   menuMusic: {fileID: 8300000, guid: b474512599bf54b07a9f487b04680882, type: 3}
   gameMusic: {fileID: 8300000, guid: a7f2d0d61cde9435487dbfca52481fc9, type: 3}
+  reportMusic: {fileID: 8300000, guid: dd706cfb9c22c410aa9a56ad8f7a900f, type: 3}
   walkClip: {fileID: 8300000, guid: 3318e557ea5714340abb5376ce7fb8c6, type: 3}
   jumpClip: {fileID: 8300000, guid: 3a73ff69aa411428eb43d3a2099be9bd, type: 3}
   collectibleClip: {fileID: 8300000, guid: bf527d825758e5b4ca7b69f5a02d9a56, type: 3}
   music: {fileID: 0}
+--- !u!1 &593243394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 593243396}
+  - component: {fileID: 593243395}
+  m_Layer: 0
+  m_Name: APIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &593243395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593243394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7ea34a72f0440dca137e8baf6335bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseUrl: https://cybermaze-backend.davylis.com/api
+  saveInterval: 5
+  nextSceneName: PlayInfo
+--- !u!4 &593243396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593243394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1055.9205, y: 760.267, z: -2.140134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1535468605
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,11 +355,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62eb939c7e508470d9ecb4f586a7fac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  participantCode: 
   playerName: 
   playerDegree: 
   age: 
-  score: 0
   agreedToResearch: 0
+  score: 0
+  currentTask: 0
   case1Score: 0
   case2Score: 0
   case3Score: 0
@@ -352,3 +402,4 @@ SceneRoots:
   - {fileID: 1535468608}
   - {fileID: 1858984336}
   - {fileID: 66645568}
+  - {fileID: 593243396}

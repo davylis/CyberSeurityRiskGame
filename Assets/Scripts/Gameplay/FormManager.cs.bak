@@ -12,6 +12,8 @@ public class FormManager : MonoBehaviour
     public GameObject popup;
     public GameObject popup2;
 
+    public ResearchApiManager apiManager;
+
     private string generatedParticipantCode;
 
     void Start()
@@ -38,13 +40,13 @@ public class FormManager : MonoBehaviour
 
         SaveData();
 
-        if (ResearchApiManager.Instance != null)
+        if (apiManager != null)
         {
-            ResearchApiManager.Instance.StartSession();
+            apiManager.StartSession();
         }
         else
         {
-            Debug.LogError("ResearchApiManager.Instance is missing.");
+            Debug.LogError("ResearchApiManager is missing.");
         }
     }
 

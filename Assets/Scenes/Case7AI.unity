@@ -891,7 +891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 58, y: 71}
+  m_AnchoredPosition: {x: 58, y: 62}
   m_SizeDelta: {x: 700, y: 42.4287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &482246130
@@ -914,7 +914,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: aaa
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88003508be39e449cb51c48494e680cf, type: 2}
   m_sharedMaterial: {fileID: 21699584260080902, guid: 88003508be39e449cb51c48494e680cf,
@@ -1161,7 +1161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000037617, y: -116}
+  m_AnchoredPosition: {x: 8, y: -130}
   m_SizeDelta: {x: 143.2568, y: 23.9116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &680801774
@@ -2058,9 +2058,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 268131944}
-        m_TargetAssemblyTypeName: ReadyTaskPopup, Assembly-CSharp
-        m_MethodName: YesRaport
+      - m_Target: {fileID: 268131943}
+        m_TargetAssemblyTypeName: C7Manager, Assembly-CSharp
+        m_MethodName: CheckAnswers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2219,7 +2219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50.002, y: 0.0000038146973}
+  m_AnchoredPosition: {x: 58.000008, y: -13}
   m_SizeDelta: {x: 700, y: 42.4287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103984964
@@ -2242,7 +2242,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: aaa
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88003508be39e449cb51c48494e680cf, type: 2}
   m_sharedMaterial: {fileID: 21699584260080902, guid: 88003508be39e449cb51c48494e680cf,
@@ -3969,7 +3969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 58, y: -80}
+  m_AnchoredPosition: {x: 58, y: -98}
   m_SizeDelta: {x: 620, y: 84.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910338747

@@ -3,10 +3,11 @@ using TMPro;
 
 public class FinalReport : MonoBehaviour
 {
-    public TMP_Text scoreText;
-    public GameObject finalReportPanel;
+    public TMP_Text playerNameText;
+    public TMP_Text totalScoreText;
+    public TMP_Text ratingText;
 
-    void Start()
+    private void Start()
     {
         if (GameManager.Instance == null)
         {
@@ -14,9 +15,37 @@ public class FinalReport : MonoBehaviour
             return;
         }
 
-        int totalScore = GameManager.Instance.score;
+        var gm = GameManager.Instance;
 
-        // ✅ Show total score
-        scoreText.text = totalScore + " / 50";
+        int score = gm.score;
+
+        Debug.Log("REPORT playerName: " + gm.playerName);
+        Debug.Log("REPORT score: " + gm.score);
+
+        if (ratingText != null)
+            ratingText.text = GetRating(score);
+
+        if (playerNameText != null)
+            playerNameText.text = gm.playerName;
+
+        if (totalScoreText != null)
+            totalScoreText.text = "Score: " + gm.score + " / 52";
+    }
+    string GetRating(int score)
+    {
+        if (score <= 12)
+            return "Beginner";
+
+        else if (score <= 22)
+            return "Script Kiddie";
+
+        else if (score <= 32)
+            return "Analyst";
+
+        else if (score <= 42)
+            return "System Breacher";
+
+        else
+            return "Hacker";
     }
 }

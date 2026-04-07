@@ -22,11 +22,11 @@ public class C2Report : MonoBehaviour
 
         if (score > 3)
         {
-            reportText.text = "You understood that even public information can reveal private details when combined.";
+            reportText.text = "You understood that even public information \n\ncan reveal private details when combined.";
         }
         else
         {
-            reportText.text = "You identified very little of the available information.";
+            reportText.text = "You identified very little of the available \n\ninformation.";
         }
 
         scoreText.text = "Score: " + score + " / 7";

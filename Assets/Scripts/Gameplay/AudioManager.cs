@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioMixer mixer;
     [SerializeField] private AudioClip menuMusic;
     [SerializeField] private AudioClip gameMusic;
+    [SerializeField] private AudioClip reportMusic;
 
     [SerializeField] private AudioClip walkClip;
     [SerializeField] private AudioClip jumpClip;
@@ -64,17 +65,23 @@ public class AudioManager : MonoBehaviour
         walkSource.loop = true;
         walkSource.playOnAwake = false;
         walkSource.clip = walkClip;
+        walkSource.volume = 0.4f;
 
         PlayMusic(menuMusic);
     }
 private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene loaded: " + scene.name);
+        StopWalking();
 
         // Change these scene names to match your project exactly
         if (scene.name == "MazeGame")
         {
-            PlayMusic(gameMusic);
+            PlayMusic(gameMusic, true);
+        }
+        else if (scene.name == "Raport")
+        {
+            PlayMusic(reportMusic, false);
         }
         else if (
             scene.name == "Bootstrap" ||
@@ -83,19 +90,24 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
             scene.name == "PlayInfo"
         )
         {
-            PlayMusic(menuMusic);
+            PlayMusic(menuMusic, true);
+
+            ChangeMusicVolume(0.35f);
+            ChangeSFXVolume(1f);
         }
     }
 
-    public void PlayMusic(AudioClip clip)
+    public void PlayMusic(AudioClip clip, bool loop = true)
     {
-        if (clip == null) return;
+       if (clip == null) return;
 
-        if (musicSource.clip == clip && musicSource.isPlaying)
-            return;
+    if (musicSource.clip == clip && musicSource.isPlaying)
+        return;
 
-        musicSource.clip = clip;
-        musicSource.Play();
+    musicSource.Stop();
+    musicSource.clip = clip;
+    musicSource.loop = loop; 
+    musicSource.Play();
     }
 
     public enum SoundType
@@ -156,11 +168,11 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 
     public void ChangeMusicVolume(float volume)
     {
-        mixer.SetFloat(MUSIC_VOLUME_NAME, Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 10);
+        mixer.SetFloat(MUSIC_VOLUME_NAME, Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 20);
     }
 
     public void ChangeSFXVolume(float volume)
     {
-        mixer.SetFloat(SFX_VOLUME_NAME, Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 40);
+        mixer.SetFloat(SFX_VOLUME_NAME, Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 20);
     }
 }

@@ -115,4 +115,18 @@ public class C8Manager : MonoBehaviour
         if (taskDescription != null)
             taskDescription.SetActive(false);  
     }
+    public void CheckAnswers()
+{
+
+    if (currentQuestionIndex < choiceScreens.Length)
+    {
+        HideAllScreens();
+
+        SaveToGameManager();
+        UpdateReportUI();
+
+        if (reportScreen != null)
+            reportScreen.SetActive(true);
+    }
+}
 }
