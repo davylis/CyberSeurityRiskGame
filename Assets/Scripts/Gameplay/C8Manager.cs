@@ -91,7 +91,7 @@ public class C8Manager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = totalScore + " / " + choiceScreens.Length + " correct";
+            scoreText.text = "Correct : " + totalScore + " / " + choiceScreens.Length;
         }
 
         if (reportText != null)
@@ -103,10 +103,12 @@ public class C8Manager : MonoBehaviour
             else if (totalScore >= choiceScreens.Length / 2)
             {
                 reportText.text = "You understood some GDPR rules, but missed a few \n\nimportant points.";
+                reportText.color = Color.yellow;
             }
             else
             {
                 reportText.text = "You made several incorrect decisions. Be more \n\ncareful when handling personal data.";
+                reportText.color = Color.red;
             }
         }
     }

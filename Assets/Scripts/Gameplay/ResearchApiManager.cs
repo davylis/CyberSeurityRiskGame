@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ResearchApiManager : MonoBehaviour
 {
     [Header("API")]
-    public string baseUrl = "http://cybermaze-backend.davylis.com/";
+    public string baseUrl = "http://cybermaze-backend.davylis.com/api";
 
     [Header("Auto Save")]
     public float saveInterval = 5f;

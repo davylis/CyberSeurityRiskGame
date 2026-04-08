@@ -1635,7 +1635,6 @@ MonoBehaviour:
   agreementToggle: {fileID: 1790503026}
   popup: {fileID: 822734509}
   popup2: {fileID: 731444397}
-  apiManager: {fileID: 0}
 --- !u!4 &660012557
 Transform:
   m_ObjectHideFlags: 0
@@ -2220,7 +2219,6 @@ MonoBehaviour:
   agreementToggle: {fileID: 0}
   popup: {fileID: 0}
   popup2: {fileID: 0}
-  apiManager: {fileID: 0}
 --- !u!1 &789520646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,7 +3156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Please fill your name and age \n\nbefore continuing"
+  m_text: "Please fill your \n\nname/degree/age before \n\ncontinuing"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88003508be39e449cb51c48494e680cf, type: 2}
   m_sharedMaterial: {fileID: 21699584260080902, guid: 88003508be39e449cb51c48494e680cf,

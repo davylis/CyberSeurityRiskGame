@@ -23,7 +23,6 @@ public class C9Manager : MonoBehaviour
         private List<int> selectedAnswers = new List<int>();
 
         public TMP_Text reportText;
-        public TMP_Text scoreText;
 
 
     private void ShowReviewedSummary()
@@ -114,10 +113,6 @@ public class C9Manager : MonoBehaviour
     }
     private void UpdateReportUI()
     {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score : " + totalScore + " / 5";
-        }
 
         if (reportText != null)
         {
@@ -128,6 +123,7 @@ public class C9Manager : MonoBehaviour
             else
             {
                 reportText.text = "You selected the wrong attack type.";
+                reportText.color = Color.red;
             }
         }
     }

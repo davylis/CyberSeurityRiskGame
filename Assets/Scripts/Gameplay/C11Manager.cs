@@ -20,7 +20,6 @@ public class C11Manager : MonoBehaviour
         private List<int> selectedAnswers = new List<int>();
 
         public TMP_Text reportText;
-        public TMP_Text scoreText;
 
     public void SelectChoice(int index)
     {
@@ -103,11 +102,6 @@ public class C11Manager : MonoBehaviour
 
     void UpdateReportUI()
     {
-        if (scoreText != null)
-        {
-            scoreText.text = totalScore + " / 5";
-        }
-
         if (reportText != null)
         {
             if (totalScore == 5)
@@ -117,6 +111,7 @@ public class C11Manager : MonoBehaviour
             else
             {
                 reportText.text = "This was not the most effective immediate response.";
+                reportText.color = Color.red;
             }
         }
     }

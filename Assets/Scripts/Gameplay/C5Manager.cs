@@ -55,14 +55,20 @@ public class C5Manager : MonoBehaviour
             if (suspiciousFound == 5)
                 reportText.text = "You identified all phishing emails correctly.";
             else if (suspiciousFound >= 3)
+            {
                 reportText.text = "You identified some phishing emails, but missed a \n\nfew.";
+                reportText.color = Color.yellow;
+            }
             else
+            {
                 reportText.text = "You missed many phishing emails. Be more careful \n\nwith suspicious messages.";
+                reportText.color = Color.red;
+            }
         }
 
         if (scoreText != null)
         {
-            scoreText.text = "Score : " + suspiciousFound + " / 5";
+            scoreText.text = "Correct : " + suspiciousFound + " / 5";
         }
 
         if (gameReport != null)

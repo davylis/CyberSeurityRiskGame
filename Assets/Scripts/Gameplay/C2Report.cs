@@ -27,8 +27,9 @@ public class C2Report : MonoBehaviour
         else
         {
             reportText.text = "You identified very little of the available \n\ninformation.";
+            reportText.color = Color.red;
         }
 
-        scoreText.text = "Score: " + score + " / 7";
+        scoreText.text = "Correct: " + score + " / 7";
     }
 }

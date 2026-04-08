@@ -27,7 +27,7 @@ public class PrivacyChoice : MonoBehaviour
 
     public void Agree()
     {
-        GameManager.Instance.AddPoints(0);
+        GameManager.Instance.AddCase1Points(0);
         Debug.Log("Current Score: " + GameManager.Instance.score);
 
         if (privacyPanel != null)
@@ -42,7 +42,7 @@ public class PrivacyChoice : MonoBehaviour
 
     public void Disagree()
     {
-        GameManager.Instance.AddPoints(2);
+        GameManager.Instance.AddCase1Points(3);
         Debug.Log("Current Score: " + GameManager.Instance.score);
 
         if (privacyPanel != null)

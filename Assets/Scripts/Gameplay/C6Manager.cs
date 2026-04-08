@@ -52,14 +52,20 @@ public class C6Manager : MonoBehaviour
             if (correct == 5)
                 reportText.text = "You correctly identified all suspicious login attempts.";
             else if (correct >= 3)
+            {
                 reportText.text = "You identified some suspicious activity, but missed \n\na few risks.";
+                reportText.color = Color.yellow;
+            }
             else
+            {
                 reportText.text = "You missed many suspicious login attempts. Be \n\nmore careful.";
+                reportText.color = Color.red;
+            }
         }
 
         if (scoreText != null)
         {
-            scoreText.text = "Score : " + correct + " / 5";
+            scoreText.text = "Correct : " + correct + " / 5";
         }
 
         if (gameReport != null)

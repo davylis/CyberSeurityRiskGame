@@ -6,26 +6,29 @@ using TMPro;
 public class ReportUI4 : MonoBehaviour
 {
     public TextMeshProUGUI reportText;
-     public GameObject GameRaport;
-     private bool scoreSaved = false;
+    public TextMeshProUGUI scoreText;
+    public GameObject GameRaport;
+    private bool scoreSaved = false;
 
     public void ShowReport()
     {
         int items = C4GManager.Instance.collectedItems;
         int points = items;
 
-        string message = "";
-
         if (items == 5)
-            message = "Strong Security Awareness";
+            reportText.text = "Strong Security Awareness";
         else if (items >= 3)
-            message = "Partial Security Awareness";
+        {
+            reportText.text = "Partial Security Awareness";
+            reportText.color = Color.yellow;
+        }
         else
-            message = "Low Security Awareness";
+        {
+            reportText.text = "Low Security Awareness";
+            reportText.color = Color.red;
+        }
 
-        reportText.text =
-            message +
-            "\n\n\n\nItems cleaned : " + items + " / 5\n\n";
+        scoreText.text = "Items cleaned : " + items + " / 5\n\n";
 
         if (!scoreSaved)
         {
@@ -44,6 +47,6 @@ public class ReportUI4 : MonoBehaviour
                 Debug.LogError("GameManager is NULL!");
             }
         }
-            GameRaport.SetActive(true);
+        GameRaport.SetActive(true);
     }
 }

@@ -22,7 +22,6 @@ public class C10Manager : MonoBehaviour
         private bool resultsSaved = false;
         private List<int> selectedAnswers = new List<int>();
         public TMP_Text reportText;
-        public TMP_Text scoreText;
 
     private void ShowReviewedSummary()
     {
@@ -89,11 +88,11 @@ public class C10Manager : MonoBehaviour
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.SaveCase9Choices(selectedAnswers);
-                GameManager.Instance.AddCase9Points(totalScore);
+                GameManager.Instance.SaveCase10Choices(selectedAnswers);
+                GameManager.Instance.AddCase10Points(totalScore);
 
-                Debug.Log("Saved Case 9 points: " + totalScore);
-                Debug.Log("Case 9 total: " + GameManager.Instance.case9Score);
+                Debug.Log("Saved Case 10 points: " + totalScore);
+                Debug.Log("Case 10 total: " + GameManager.Instance.case10Score);
                 Debug.Log("Game total score: " + GameManager.Instance.score);
             }
             else
@@ -109,10 +108,6 @@ public class C10Manager : MonoBehaviour
     }
     private void UpdateReportUI()
     {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score : " + totalScore + " / 5";
-        }
 
         if (reportText != null)
         {
@@ -123,6 +118,7 @@ public class C10Manager : MonoBehaviour
             else
             {
                 reportText.text = "You selected the wrong attack type.";
+                reportText.color = Color.red;
             }
         }
     }

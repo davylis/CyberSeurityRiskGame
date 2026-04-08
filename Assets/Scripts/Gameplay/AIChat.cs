@@ -90,10 +90,12 @@ public class AIChat : MonoBehaviour
             else if (score >= prompts.Length / 2)
             {
                 reportText.text = "You identified some unsafe prompts, but missed \n\na few.";
+                reportText.color = Color.yellow;
             }
             else
             {
                 reportText.text = "Avoid sharing personal or confidential information \n\nwith AI tools.";
+                reportText.color = Color.red;
             }
         }
 
@@ -102,7 +104,7 @@ public class AIChat : MonoBehaviour
             gameRaport.SetActive(true);
         }
 
-        Debug.Log("Final Score: " + score + " / " + prompts.Length);
+        Debug.Log("Correct: " + score + " / " + prompts.Length);
     }
 
 }
